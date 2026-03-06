@@ -60,25 +60,27 @@ Claude는 코드를 읽으면서 WHAT은 어느 정도 파악할 수 있지만, 
 
 ## ② 실무 프로젝트에 CLAUDE.md 작성
 
-### 작성 예시 (글로벌 배송/클레임 시스템 기준)
+### 작성 예시 (온라인 학습 플랫폼 기준)
 
 ```markdown
-# Musinsa Global Shipping & Claims System
+# Online Learning Platform (LMS)
 
 ## WHAT
-Spring Boot 기반 글로벌 배송/클레임 처리 시스템.
-- /global-shipping: MFS 글로벌 배송 정책 API, 로컬 배포 처리
-- /claims: 클레임 접수/처리 시스템 (PHP 레거시 + Spring Boot 신규)
-- /integration: 외부 연동 (T-Mall, Zozotown, LX Pantos, Flexport)
+Spring Boot 기반 온라인 학습 플랫폼 백엔드.
+- /course-api: 강좌 생성/조회/수강신청 REST API
+- /payment: 수강료 결제 (PG 연동, 환불 처리)
+- /streaming: 영상 스트리밍 연동 (Vimeo OTT, AWS MediaConvert)
+- /notification: 수강 알림 (이메일, 푸시 알림)
 
-Jira 프로젝트: GPRD (Global Product Delivery), CLM (Claims)
-Atlassian workspace: musinsa-oneteam
+멀티 모듈 Gradle 프로젝트, Java 17, Spring Boot 3.2
+DB: MySQL 8.0, 캐시: Redis 7
 
 ## WHY
 - 트랜잭션 경계와 외부 API 호출을 분리하는 구조
-  → 외부 API 실패가 DB 트랜잭션을 롤백시키지 않도록
-- LogisticsBusinessType이 API별로 다르게 동작함 주의
-- PHP 레거시 클레임 시스템은 점진적으로 Spring Boot로 이관 중
+  → 외부 API(PG사, 스트리밍 서비스) 실패가 DB 트랜잭션을 롤백시키지 않도록
+- EnrollmentStatus enum이 컨텍스트별로 다르게 매핑됨 주의
+  (내부 상태 vs PG 상태 vs 스트리밍 접근권한 상태)
+- 레거시 PHP 어드민은 점진적으로 Spring Boot로 이관 중
 
 ## HOW
 
@@ -89,7 +91,7 @@ Atlassian workspace: musinsa-oneteam
 
 ### 코딩 컨벤션
 - DateTime: LocalDateTime 대신 OffsetDateTime 사용할 것
-  → 타임존 직렬화 이슈 방지 (Asia/Seoul UTC+9)
+  → 해외 사용자 타임존 이슈 방지
 - WebClient 커넥션풀: 저트래픽 서비스는 maxConnections=10으로 제한
 - JSON 컬럼 쿼리: MySQL JSON_EXTRACT 사용 시 인덱스 미적용 주의
 
@@ -111,8 +113,8 @@ CLAUDE.md는 여러 위치에 둘 수 있다:
 
 ```
 ~/.claude/CLAUDE.md              ← 개인 전역 (모든 프로젝트 공통)
-~/workspace/project/CLAUDE.md    ← 프로젝트 루트
-~/workspace/project/claims/CLAUDE.md  ← 하위 모듈별
+~/workspace/lms-backend/CLAUDE.md    ← 프로젝트 루트
+~/workspace/lms-backend/payment/CLAUDE.md  ← 하위 모듈별
 ```
 
 전역 파일에는 개인 선호(한국어 응답, IntelliJ 사용 등)를 넣고,
@@ -141,9 +143,9 @@ CLAUDE.md는 여러 위치에 둘 수 있다:
 
 ```bash
 # CLAUDE.md가 없는 상태에서 시작
-cd ~/Documents/workspace/your-project
+cd ~/workspace/lms-backend
 claude
-> 배송 상태 변경 API에 Zozotown 주문 상태 동기화 기능을 추가해줘
+> 수강신청 API에 영상 스트리밍 접근권한 자동 부여 기능을 추가해줘
 ```
 
 이때 Claude의 응답을 관찰한다. 아마 이런 점들이 보일 것이다:
@@ -159,7 +161,7 @@ claude
 # CLAUDE.md를 프로젝트 루트에 배치한 후
 claude
 > /clear
-> 배송 상태 변경 API에 Zozotown 주문 상태 동기화 기능을 추가해줘
+> 수강신청 API에 영상 스트리밍 접근권한 자동 부여 기능을 추가해줘
 ```
 
 **Step 3: 비교 포인트 체크**
@@ -178,7 +180,7 @@ claude
 ## CLAUDE.md 적용 전/후 비교 기록
 
 ### 테스트 프롬프트
-"배송 상태 변경 API에 Zozotown 주문 상태 동기화 기능을 추가해줘"
+"수강신청 API에 영상 스트리밍 접근권한 자동 부여 기능을 추가해줘"
 
 ### Before (CLAUDE.md 없음)
 - [스크린샷]
@@ -198,9 +200,9 @@ claude
 하나의 프롬프트로만 비교하면 우연일 수 있으니, 2~3개 더 시도해본다:
 
 ```
-"클레임 환불 처리 로직에서 관세 계산을 리팩토링해줘"
-"MFS 글로벌 배송 정책 API에 대한 단위 테스트를 작성해줘"
-"T-Mall 해외 배송 라벨 업데이트 폴링 로직의 에러 처리를 개선해줘"
+"수강 취소 시 환불 처리 로직을 리팩토링해줘"
+"강좌 진도율 집계 배치 API에 대한 단위 테스트를 작성해줘"
+"PG사 결제 콜백 처리의 에러 핸들링을 개선해줘"
 ```
 
 ---
