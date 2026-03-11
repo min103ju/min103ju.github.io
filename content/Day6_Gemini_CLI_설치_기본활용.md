@@ -83,15 +83,17 @@ gemini
 
 하단 상태 바에 모델명(Gemini 2.5 Pro 등)과 컨텍스트 사용량이 표시된다.
 
-### Preview Features 활성화 (권장)
+### 모델 확인 및 변경
 
-최신 모델(Gemini 3 등)을 사용하려면 Preview Features를 켜야 한다:
+v0.29.0부터 Gemini 3가 기본 모델이 되었다. Preview Features 설정은 더 이상 필요 없다.
 
 ```bash
 gemini
-> /settings
-# Preview Features → true로 설정
-# 재시작 후 적용
+# 하단 상태 바에서 현재 모델 확인 (Auto (Gemini 3) 등)
+
+# 모델을 변경하고 싶을 때
+> /model
+# 목록에서 선택 (Gemini 3, Gemini 2.5 Pro 등)
 ```
 
 ---
@@ -345,7 +347,7 @@ gemini -p "프롬프트" --output-format json    # JSON 출력
 ### 과제 1: Gemini CLI 설치 및 설정 (10분)
 1. `npm install -g @google/gemini-cli`
 2. `gemini` 실행 → Google 로그인
-3. Preview Features 활성화
+3. `/model`로 현재 모델 확인 (Gemini 3가 기본)
 4. 간단한 프롬프트로 동작 확인
 
 ### 과제 2: GEMINI.md 설정 (10분)
