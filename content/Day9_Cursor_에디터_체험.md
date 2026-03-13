@@ -90,15 +90,24 @@ CLAUDE.md와 내용은 동일하되, 위치와 형식이 다르다.
 
 ---
 
-## ② Composer 모드 & Agent 모드 활용
+## ② Cursor의 4가지 AI 모드 활용
 
-### Cursor의 3가지 AI 모드
+### Cursor의 AI 모드 구조 (2026년 현재)
 
-| 모드 | 단축키 | 용도 | 자율성 |
-|---|---|---|---|
-| **Tab** | 자동 | 코드 자동완성 (한 줄~수 줄) | 최소 |
-| **Inline Edit** | `Cmd+K` | 선택 영역 수정 | 중간 |
-| **Composer/Agent** | `Cmd+I` | 멀티 파일 편집, 자율 실행 | 최대 |
+Cursor 2.0 이후 Composer가 Agent에 통합되면서 모드 구조가 바뀌었다.
+현재 `Cmd+I`를 누르면 다음 4가지 모드를 선택할 수 있다:
+
+| 모드 | 용도 | 자율성 |
+|---|---|---|
+| **Agent** | 멀티 파일 편집 + 자율 실행 루프 | 최대 (기본값) |
+| **Plan** | 분석/계획만, 코드 수정 안 함 | 읽기 전용 |
+| **Debug** | 에러 원인 추적 + 가설 기반 디버깅 | 중간 |
+| **Ask** | 코드베이스에 대한 질문/답변만 | 최소 |
+
+이 4가지 외에 **Tab**(코딩 중 자동완성)과 **Inline Edit**(`Cmd+K`, 선택 영역 수정)이 별도로 존재한다.
+
+> **참고:** 예전 글이나 튜토리얼에서 "Composer 모드"와 "Agent 모드"를 분리해서 설명하는 경우가 많다.
+> 2026년 현재 Composer는 독립 모드가 아니라 Agent 내부의 **모델 선택지**(Composer 1.5)로 통합되었다.
 
 ### Tab — AI 자동완성
 
@@ -128,12 +137,12 @@ Tab은 코딩 흐름을 끊지 않고 속도를 높이는 데 최적화되어 �
 
 작은 범위의 정밀한 수정에 적합하다. 한 메서드, 한 클래스 수준.
 
-### Composer (Cmd+I) — 멀티 파일 편집
+### Agent (Cmd+I) — 핵심 모드
 
-Cursor의 핵심 기능. 자연어로 지시하면 **여러 파일을 동시에 편집**한다:
+Cursor의 가장 강력한 기능. 자연어로 지시하면 **멀티 파일 편집 + 터미널 실행 + 자동 수정**을 자율적으로 수행한다:
 
 ```
-Cmd+I 누르고:
+Cmd+I → Agent 모드(기본값):
 
 > "수강신청 API에 정원 체크 로직을 추가해줘.
   CourseService에 정원 확인 메서드를 추가하고,
@@ -141,50 +150,75 @@ Cmd+I 누르고:
   정원 초과 시 CourseFullException을 던져줘."
 ```
 
-Composer가 하는 일:
-1. CourseService.java에 `checkCapacity()` 메서드 추가
-2. EnrollmentService.java에 호출 코드 추가
-3. CourseFullException.java 새 파일 생성
-4. 각 파일의 변경사항을 **diff로 보여줌**
-5. 파일별로 적용/취소 선택 가능
-
-**Composer의 핵심 장점: 변경사항을 시각적 diff로 확인할 수 있다.**
-터미널 에이전트에서는 코드가 텍스트로 출력되지만, Cursor에서는 에디터의 diff 뷰로 확인한다.
-
-### Agent 모드 — 자율 실행
-
-Composer의 확장판. AI가 **자율적으로 계획→실행→확인→수정**을 반복한다:
-
-```
-Cmd+I → Agent 모드 선택:
-
-> "프로젝트에 Spring Security 기본 설정을 추가해줘.
-  JWT 인증, SecurityConfig, 필터 체인까지."
-```
-
 Agent가 하는 일:
-1. 필요한 의존성 확인 (build.gradle)
-2. SecurityConfig.java 생성
-3. JwtFilter.java 생성
-4. 터미널에서 빌드 실행
-5. 에러 발생 시 자동 수정
-6. 테스트 실행 후 통과 확인
+1. 코드베이스를 탐색해서 관련 파일 파악
+2. CourseService.java에 `checkCapacity()` 메서드 추가
+3. EnrollmentService.java에 호출 코드 추가
+4. CourseFullException.java 새 파일 생성
+5. 터미널에서 빌드 실행
+6. 에러 발생 시 자동 수정
+7. 각 파일의 변경사항을 **diff로 보여줌**
 
-**Composer vs Agent 차이:**
+**Agent의 핵심 장점: 변경사항을 시각적 diff로 확인할 수 있다.**
+터미널 에이전트(Claude Code 등)에서는 코드가 텍스트로 출력되지만, Cursor에서는 에디터의 diff 뷰에서 파일별로 적용/취소를 선택할 수 있다.
+
+Agent 모드에서 모델을 선택할 수 있다:
+- **Auto**: Cursor가 자동으로 최적 모델 선택 (무제한, 비용 효율적)
+- **Composer 1.5**: Cursor 자체 코딩 모델 (빠름, 에이전트 특화)
+- **Claude Opus/Sonnet**: Anthropic 모델 (크레딧 풀 소모)
+- **GPT-5.2**: OpenAI 모델 (크레딧 풀 소모)
+- **Gemini 3 Pro**: Google 모델 (크레딧 풀 소모)
+
+### Plan — 분석/계획 전용
+
+Claude Code의 Plan Mode와 유사하다. 코드를 읽고 분석할 수 있지만 **수정은 할 수 없다:**
 
 ```
-Composer: 사용자 → Cursor → 사용자 → Cursor → 완료
-          (매 파일 변경마다 승인)
+Cmd+I → Plan 모드:
 
-Agent:    사용자 → Cursor [계획→실행→관찰→수정] → 완료
-          (자율적으로 루프)
+> "EnrollmentService의 구조를 분석하고 리팩토링 계획을 세워줘"
 ```
 
-간단한 작업(파일 3개 이하)은 Composer, 복잡한 작업(빌드/테스트 포함)은 Agent가 적합하다.
+Plan 모드에서 계획을 세운 뒤, Agent 모드로 전환해서 실행하는 워크플로우가 효과적이다.
+Plan에서 만든 계획을 다른 모델의 Agent로 빌드할 수도 있다.
+
+### Debug — 에러 추적
+
+에러가 발생했을 때 AI가 가설을 세우고 원인을 추적한다:
+
+```
+Cmd+I → Debug 모드:
+
+> "테스트 실행 시 EnrollmentServiceTest에서 NullPointerException이 발생해"
+```
+
+Debug 모드는 에러 로그, 스택 트레이스, 관련 코드를 종합 분석해서 원인을 추적하고 수정안을 제시한다.
+
+### Ask — 질문/답변
+
+코드베이스에 대해 질문만 한다. 파일 수정 없음:
+
+```
+Cmd+I → Ask 모드:
+
+> "이 프로젝트에서 인증 로직이 어떻게 구현되어 있어?"
+```
+
+### 모드 선택 가이드
+
+```
+어떤 모드를 써야 할까?
+
+"코드를 수정/생성해야 한다"     → Agent
+"먼저 분석/계획만 하고 싶다"    → Plan
+"에러가 나서 원인을 찾고 싶다"  → Debug
+"궁금한 점만 물어보고 싶다"     → Ask
+"한 줄~수 줄만 빠르게 수정"     → Inline Edit (Cmd+K)
+```
 
 ### @컨텍스트 참조
 
-Composer/Agent에서 특정 파일이나 폴더를 참조할 수 있다:
+Agent/Plan/Ask 모드에서 특정 파일이나 폴더를 참조할 수 있다:
 
 ```
 > @src/main/java/com/example/service/ 이 폴더의 서비스들을 
@@ -230,8 +264,8 @@ IntelliJ는 백엔드 개발자의 메인 IDE다. Cursor를 대체할 것인지,
 | **리팩토링** | 정적 분석 기반 (안전) | AI 기반 (유연하지만 검증 필요) |
 | **디버깅** | 완전한 디버거 | VS Code 수준 디버거 |
 | **AI 자동완성** | AI Assistant 플러그인 | 네이티브 (Tab, 프로젝트 인덱싱) |
-| **멀티 파일 편집** | 수동 | Composer로 자동 |
-| **AI Agent** | 없음 (Codex ACP로 일부 가능) | 네이티브 Agent 모드 |
+| **멀티 파일 편집** | 수동 | Agent 모드로 자동 |
+| **AI Agent** | Cursor ACP로 사용 가능 (2026.3~) | 네이티브 Agent 모드 |
 | **Gradle 통합** | 네이티브 | 터미널 기반 |
 | **DB 도구** | Database 탭 내장 | 없음 (외부 도구 필요) |
 | **Git 통합** | 강력한 내장 도구 | VS Code 수준 |
@@ -328,12 +362,13 @@ IntelliJ → Cursor ACP 플러그인 설치 → Cursor 계정 로그인
 3. 프로젝트 열기 → 인덱싱 완료 대기
 4. .cursor/rules/ 에 프로젝트 규칙 작성
 
-### 과제 2: Composer & Agent 체험 (25분)
+### 과제 2: 4가지 모드 체험 (25분)
 1. Tab 자동완성으로 코드 작성 체험
 2. Cmd+K로 Inline Edit 체험 (메서드 하나 수정)
-3. Cmd+I Composer로 멀티 파일 편집 체험
-4. Agent 모드로 기능 하나 자율 구현 체험
-5. 각 모드의 적합한 상황 메모
+3. Cmd+I → Agent 모드로 멀티 파일 기능 구현 체험
+4. Cmd+I → Plan 모드로 분석만 수행 체험
+5. Cmd+I → Ask 모드로 코드베이스 질문 체험
+6. 각 모드의 적합한 상황 메모
 
 ### 과제 3: IntelliJ 비교 분석 (15분)
 1. 동일 태스크를 IntelliJ(수동)과 Cursor(AI)로 수행
@@ -350,8 +385,9 @@ IntelliJ → Cursor ACP 플러그인 설치 → Cursor 계정 로그인
 | Cursor 본질 | VS Code 포크 기반 AI 네이티브 IDE |
 | Tab | 프로젝트 인덱싱 기반 자동완성, 코딩 흐름 유지 |
 | Inline Edit (Cmd+K) | 선택 영역 정밀 수정 |
-| Composer (Cmd+I) | 멀티 파일 동시 편집, diff로 확인 |
-| Agent | Composer + 자율 실행 루프 (계획→실행→관찰→수정) |
+| Agent (Cmd+I) | 멀티 파일 편집 + 자율 실행 루프 (기본 모드) |
+| Plan / Debug / Ask | 분석 전용 / 에러 추적 / 질문 응답 |
+| Composer 1.5 | Agent 내 모델 선택지 (별도 모드가 아님) |
 | vs IntelliJ | Java/Spring/디버깅은 IntelliJ, AI 편집은 Cursor |
 | 실무 결론 | 대체가 아닌 병행. IntelliJ(메인) + Claude Code/Cursor(보조) |
 | ACP | Cursor가 JetBrains 안에서 동작 가능 (2026.3~) |

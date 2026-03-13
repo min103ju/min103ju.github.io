@@ -65,7 +65,6 @@ description: >
   Spring Boot REST API의 단위 테스트를 자동 생성한다.
   API 테스트, 컨트롤러 테스트, MockMvc 테스트를 요청할 때 사용한다.
   테스트 코드 작성을 요청받으면 항상 이 스킬을 확인할 것.
-allowed-tools: Read, Glob, Grep, Write, Bash
 ---
 
 # ② Markdown 본문 (지시사항)
@@ -113,10 +112,16 @@ class SomeControllerTest {
 |---|---|---|
 | `name` | ✅ | 스킬 이름, `/slash-command`로도 사용됨 |
 | `description` | ✅ | Claude가 이 스킬을 언제 사용할지 판단하는 기준 |
-| `allowed-tools` | 선택 | 이 스킬 활성화 시 사용 가능한 도구 제한 |
 | `disable-model-invocation` | 선택 | `true`로 설정하면 자동 호출 방지 (수동만 가능) |
 | `user-invocable` | 선택 | `false`로 설정하면 /메뉴에서 숨김 (백그라운드 지식) |
 | `argument-hint` | 선택 | 자동완성 힌트 (예: `[class-name]`) |
+| `context` | 선택 | `fork`로 설정하면 서브 에이전트에서 실행 |
+| `agent` | 선택 | 사용할 에이전트 타입 지정 (예: `Explore`) |
+| `model` | 선택 | 이 스킬에서 사용할 모델 지정 (예: `sonnet`) |
+
+> **참고:** 공식 문서에 `allowed-tools` 필드가 언급되어 있지만,
+> 실제 CLI에서는 "지원되지 않는 속성"이라는 경고가 뜨고
+> 설정해도 동작하지 않는다 (2026.3 기준). 버그로 보고된 상태.
 
 ### description 작성 팁
 
@@ -184,7 +189,6 @@ description: >
   새 모듈 생성, 모듈 추가, 서브 프로젝트 생성을 요청할 때 사용한다.
   모듈 구조나 프로젝트 세팅과 관련된 작업에도 이 스킬을 확인할 것.
 argument-hint: [module-name]
-allowed-tools: Read, Write, Bash, Glob
 ---
 
 # Module Scaffold
@@ -258,15 +262,97 @@ claude
 
 Claude가 스킬의 지시대로 디렉토리 구조, build.gradle, settings.gradle 수정까지 일관되게 수행하는지 확인한다.
 
+### /skills 명령어로 스킬 확인하기
+
+세션 중에 `/skills` 명령어로 현재 사용 가능한 스킬 목록을 확인할 수 있다:
+
+```bash
+claude
+
+# 현재 사용 가능한 스킬 목록 확인
+> /skills
+```
+
+**주의: 세션 중에 스킬을 추가/수정하면 즉시 반영되지 않는다.**
+스킬은 세션 시작 시에만 스캔되므로, 새 스킬을 추가했으면 세션을 재시작해야 한다:
+
+```bash
+# 세션 중에 스킬 파일을 수동으로 만들었다면
+> /exit          # 세션 종료
+claude           # 재시작하면 새 스킬이 인식됨
+```
+
+**팁:** 스킬 파일을 먼저 만들어놓고 세션을 시작하면 처음부터 인식된다.
+스킬 개발/테스트 중이라면 이 순서가 가장 효율적이다.
+
+### Claude에게 스킬을 만들어달라고 하기
+
+직접 SKILL.md를 작성하는 것 외에, **Claude Code 자체에 스킬 생성을 요청**할 수도 있다:
+
+```bash
+claude
+
+> "코드 리뷰 스킬을 만들어줘. 
+  보안 취약점, N+1 쿼리, @Transactional 남용을 체크하고
+  심각도별로 분류해서 보고하는 스킬이야.
+  .claude/skills/code-reviewer/ 에 저장해줘."
+```
+
+Claude가 SKILL.md 파일을 자동으로 작성해준다. 생성된 파일을 검토하고 필요하면 수정하면 된다.
+
+**팁:** Anthropic 공식 레포에 `skill-creator`라는 스킬이 있다. 이걸 먼저 설치하면 스킬 생성 품질이 올라간다:
+
+```bash
+# Anthropic 공식 스킬 설치
+npx skills add anthropics/skills --skill skill-creator
+```
+
+### 외부 스킬 설치하기
+
+커뮤니티에서 만든 스킬을 설치할 수 있다:
+
+```bash
+# Anthropic 공식 스킬 (GitHub에서 설치)
+npx skills add anthropics/skills --skill frontend-design
+npx skills add anthropics/skills --skill pdf
+
+# 또는 수동으로 클론해서 복사
+git clone https://github.com/anthropics/skills.git
+cp -r skills/skills/frontend-design ~/.claude/skills/
+```
+
+유용한 스킬 저장소:
+- **Anthropic 공식**: [github.com/anthropics/skills](https://github.com/anthropics/skills) — docx, pdf, pptx, frontend-design 등
+- **커뮤니티 모음**: [github.com/travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills)
+- **스킬 마켓플레이스**: [skillsmp.com](https://skillsmp.com) — 검색/탐색 가능
+
+### 스킬 vs 슬래시 커맨드 vs CLAUDE.md 언제 뭘 쓸까
+
+| 도구 | 용도 | 호출 방식 |
+|---|---|---|
+| **CLAUDE.md** | 항상 적용되는 프로젝트 규칙 | 자동 (매 세션) |
+| **Skills** | 상황에 따라 필요한 전문 지식 | 자동 (Claude 판단) 또는 /skill-name |
+| **슬래시 커맨드** | 명시적으로 실행하는 프롬프트 매크로 | 수동 (/command-name만) |
+
+```
+"항상 적용해야 한다"         → CLAUDE.md
+"특정 작업에만 적용한다"     → Skills
+"내가 직접 실행할 때만"      → 슬래시 커맨드
+```
+
+> **참고:** 기존 `.claude/commands/` 파일은 계속 동작한다.
+> 같은 이름의 Skill과 Command가 있으면 Skill이 우선한다.
+> 신규 작업은 Skills로 만드는 것을 권장.
+
 ### 더 만들어볼 만한 스킬 아이디어
 
-| 스킬 이름                  | 용도                                                 | 반복 빈도   |
-| ---------------------- | -------------------------------------------------- | ------- |
-| `api-docs-generator`   | API 엔드포인트에서 Swagger/OpenAPI 문서 자동 생성               | 매주      |
-| `entity-crud`          | JPA 엔티티 → Repository/Service/Controller CRUD 일괄 생성 | 새 엔티티마다 |
-| `migration-script`     | Flyway/Liquibase DB 마이그레이션 스크립트 생성                 | 스키마 변경시 |
-| `pr-description`       | 변경사항 분석 → PR 설명 자동 작성                              | 매 PR    |
-| `architecture-diagram` | Mermaid로 아키텍처 다이어그램 생성                             | 구조 변경시  |
+| 스킬 이름 | 용도 | 반복 빈도 |
+|---|---|---|
+| `api-docs-generator` | API 엔드포인트에서 Swagger/OpenAPI 문서 자동 생성 | 매주 |
+| `entity-crud` | JPA 엔티티 → Repository/Service/Controller CRUD 일괄 생성 | 새 엔티티마다 |
+| `migration-script` | Flyway/Liquibase DB 마이그레이션 스크립트 생성 | 스키마 변경시 |
+| `pr-description` | 변경사항 분석 → PR 설명 자동 작성 | 매 PR |
+| `architecture-diagram` | Mermaid로 아키텍처 다이어그램 생성 | 구조 변경시 |
 
 ---
 
@@ -439,6 +525,36 @@ exit 0
 ```
 
 `timeout: 180`은 테스트 실행이 오래 걸릴 수 있으므로 3분 제한을 설정한 것이다.
+
+### timeout이 적용되는 범위
+
+timeout은 **프롬프트 전체가 아니라, 매칭되는 개별 hook 스크립트 1회 실행의 시간 제한**이다.
+
+예를 들어 "테스트를 작성해줘"라는 프롬프트에서 Claude가 파일 5개를 수정하면, PostToolUse hook이 **5번** 각각 실행된다. timeout은 그 한 번의 실행에 적용된다:
+
+```
+프롬프트: "이 서비스의 테스트를 작성해줘"
+
+Claude 작업 흐름:
+  ├─ Write(TestA.java) → PostToolUse hook 실행 (timeout 60s 적용)
+  ├─ Write(TestB.java) → PostToolUse hook 실행 (timeout 60s 적용)
+  ├─ Write(TestC.java) → PostToolUse hook 실행 (timeout 60s 적용)
+  └─ Bash(./gradlew test) → PostToolUse hook 실행 (timeout 60s 적용)
+```
+
+timeout을 초과하면 해당 hook 실행만 kill되고, Claude 작업은 계속 진행된다.
+
+**hook 타입별 기본 timeout:**
+
+| hook 타입 | 기본 timeout |
+|---|---|
+| command | 600초 (10분) |
+| prompt (LLM 판단) | 30초 |
+| agent (서브에이전트) | 60초 |
+| SessionEnd | 1.5초 |
+
+> **참고:** settings.json의 `"timeout"` 필드는 **초(seconds)** 단위다.
+> 환경변수(`BASH_DEFAULT_TIMEOUT_MS`, `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS`)는 **밀리초(ms)** 단위이므로 혼동하지 않도록 주의.
 
 ### 실전 Hook 4: Claude 작업 완료 시 데스크탑 알림
 
