@@ -1,3 +1,13 @@
+---
+title: "Day 4: Custom Skills & Hooks 설정"
+date: 2026-03-07
+tags:
+  - claude-code
+  - skills
+  - hooks
+  - week1
+---
+
 # Day 4: Custom Skills & Hooks 설정
 
 > AI Tools Mastery Curriculum — Week 1, Day 4

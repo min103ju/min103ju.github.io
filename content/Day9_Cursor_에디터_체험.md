@@ -1,3 +1,13 @@
+---
+title: "Day 9: Cursor / Windsurf 에디터 체험"
+date: 2026-03-12
+tags:
+  - Cursor
+  - Windsurf
+  - AI에디터
+  - week2
+---
+
 # Day 9: Cursor / Windsurf 에디터 체험
 
 > AI Tools Mastery Curriculum — Week 2, Day 9

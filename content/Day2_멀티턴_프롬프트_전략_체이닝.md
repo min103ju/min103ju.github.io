@@ -1,3 +1,12 @@
+---
+title: "Day 2: 멀티턴 프롬프트 전략 & 체이닝"
+date: 2026-03-05
+tags:
+  - prompt-engineering
+  - 체이닝
+  - week1
+---
+
 # Day 2: 멀티턴 프롬프트 전략 & 체이닝
 
 > AI Tools Mastery Curriculum — Week 1, Day 2

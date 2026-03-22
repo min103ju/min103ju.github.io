@@ -1,3 +1,12 @@
+---
+title: "Day 15: Week 3 종합 정리"
+date: 2026-03-18
+tags:
+  - 회고
+  - MCP
+  - week3
+---
+
 # Day 15: Week 3 종합 정리
 
 > AI Tools Mastery Curriculum — Week 3, Day 15

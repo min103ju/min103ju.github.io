@@ -1,3 +1,13 @@
+---
+title: "Day 12: MCP 서버 v1 — OpenWeather API 연동"
+date: 2026-03-17
+tags:
+  - MCP
+  - OpenWeather
+  - API연동
+  - week3
+---
+
 # Day 12: MCP 서버 v1 — OpenWeather API 연동
 
 > AI Tools Mastery Curriculum — Week 3, Day 12

@@ -1,3 +1,12 @@
+---
+title: "Day 16: 사이드 프로젝트 기획 & 설계"
+date: 2026-03-18
+tags:
+  - 사이드프로젝트
+  - 기획
+  - week4
+---
+
 # Day 16: 사이드 프로젝트 기획 & 설계
 
 > AI Tools Mastery Curriculum — Week 4, Day 16

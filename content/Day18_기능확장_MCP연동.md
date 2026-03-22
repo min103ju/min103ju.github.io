@@ -1,3 +1,12 @@
+---
+title: "Day 18: 기능 확장 & MCP 연동"
+date: 2026-03-19
+tags:
+  - MCP
+  - 기능확장
+  - week4
+---
+
 # Day 18: 기능 확장 & MCP 연동
 
 > AI Tools Mastery Curriculum — Week 4, Day 18

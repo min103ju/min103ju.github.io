@@ -1,3 +1,12 @@
+---
+title: "Day 1: CLAUDE.md 작성법 & 프로젝트 컨텍스트 설계"
+date: 2026-03-05
+tags:
+  - claude-code
+  - CLAUDE-md
+  - week1
+---
+
 # Day 1: CLAUDE.md 작성법 & 프로젝트 컨텍스트 설계
 
 > AI Tools Mastery Curriculum — Week 1, Day 1

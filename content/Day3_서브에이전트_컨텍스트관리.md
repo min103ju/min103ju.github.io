@@ -1,3 +1,12 @@
+---
+title: "Day 3: 서브 에이전트 & /clear, /compact 활용"
+date: 2026-03-06
+tags:
+  - claude-code
+  - 서브에이전트
+  - week1
+---
+
 # Day 3: 서브 에이전트 & /clear, /compact 활용
 
 > AI Tools Mastery Curriculum — Week 1, Day 3

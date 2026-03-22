@@ -1,3 +1,12 @@
+---
+title: "Day 6: Gemini CLI 설치 & 기본 활용"
+date: 2026-03-10
+tags:
+  - gemini
+  - CLI
+  - week2
+---
+
 # Day 6: Gemini CLI 설치 & 기본 활용
 
 > AI Tools Mastery Curriculum — Week 2, Day 6

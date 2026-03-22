@@ -1,3 +1,12 @@
+---
+title: "Day 5: 주간 회고 & 블로그 작성"
+date: 2026-03-08
+tags:
+  - 회고
+  - 블로그
+  - week1
+---
+
 # Day 5: 주간 회고 & 블로그 작성
 
 > AI Tools Mastery Curriculum — Week 1, Day 5

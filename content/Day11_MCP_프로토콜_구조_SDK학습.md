@@ -1,3 +1,12 @@
+---
+title: "Day 11: MCP 프로토콜 구조 & SDK 학습"
+date: 2026-03-17
+tags:
+  - MCP
+  - SDK
+  - week3
+---
+
 # Day 11: MCP 프로토콜 구조 & SDK 학습
 
 > AI Tools Mastery Curriculum — Week 3, Day 11

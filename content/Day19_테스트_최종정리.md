@@ -1,3 +1,12 @@
+---
+title: "Day 19: 테스트 & 최종 정리"
+date: 2026-03-19
+tags:
+  - 테스트
+  - 최종정리
+  - week4
+---
+
 # Day 19: 테스트 & 최종 정리
 
 > AI Tools Mastery Curriculum — Week 4, Day 19

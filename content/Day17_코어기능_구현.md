@@ -1,3 +1,12 @@
+---
+title: "Day 17: 코어 기능 구현 — AI 페어 프로그래밍"
+date: 2026-03-18
+tags:
+  - 구현
+  - AI페어프로그래밍
+  - week4
+---
+
 # Day 17: 코어 기능 구현 — AI 페어 프로그래밍
 
 > AI Tools Mastery Curriculum — Week 4, Day 17
