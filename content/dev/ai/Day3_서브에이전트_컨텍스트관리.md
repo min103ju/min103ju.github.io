@@ -3,7 +3,7 @@ title: "Day 3: 서브 에이전트 & /clear, /compact 활용"
 date: 2026-03-06
 tags:
   - claude-code
-  - 서브에이전트
+  - sub-agent
   - week1
 ---
 

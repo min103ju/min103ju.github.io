@@ -2,8 +2,8 @@
 title: "Day 14: 멀티 에이전트 오케스트레이션 패턴"
 date: 2026-03-18
 tags:
-  - 멀티에이전트
-  - 오케스트레이션
+  - multi-agent
+  - orchestration
   - week3
 ---
 

@@ -2,8 +2,8 @@
 title: "Day 13: MCP 서버 v2 — 도구 확장 & 에러 처리"
 date: 2026-03-17
 tags:
-  - MCP
-  - 에러처리
+  - mcp
+  - error-handling
   - week3
 ---
 

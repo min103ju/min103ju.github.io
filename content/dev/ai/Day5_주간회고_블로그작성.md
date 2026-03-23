@@ -2,8 +2,8 @@
 title: "Day 5: 주간 회고 & 블로그 작성"
 date: 2026-03-08
 tags:
-  - 회고
-  - 블로그
+  - retrospective
+  - blog
   - week1
 ---
 

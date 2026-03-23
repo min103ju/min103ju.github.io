@@ -2,8 +2,8 @@
 title: "Day 10: AI 도구 비교 분석"
 date: 2026-03-14
 tags:
-  - 비교분석
-  - 회고
+  - comparison
+  - retrospective
   - week2
 ---
 

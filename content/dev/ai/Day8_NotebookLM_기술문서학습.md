@@ -2,8 +2,8 @@
 title: "Day 8: NotebookLM으로 기술 문서 학습"
 date: 2026-03-11
 tags:
-  - NotebookLM
-  - 학습도구
+  - notebooklm
+  - learning-tool
   - week2
 ---
 

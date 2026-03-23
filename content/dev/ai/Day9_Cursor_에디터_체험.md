@@ -2,9 +2,9 @@
 title: "Day 9: Cursor / Windsurf 에디터 체험"
 date: 2026-03-12
 tags:
-  - Cursor
-  - Windsurf
-  - AI에디터
+  - cursor
+  - windsurf
+  - ai-editor
   - week2
 ---
 

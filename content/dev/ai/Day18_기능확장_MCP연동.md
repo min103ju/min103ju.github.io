@@ -2,8 +2,8 @@
 title: "Day 18: 기능 확장 & MCP 연동"
 date: 2026-03-19
 tags:
-  - MCP
-  - 기능확장
+  - mcp
+  - feature-extension
   - week4
 ---
 

@@ -5,8 +5,8 @@ tags:
   - codex
   - claude
   - gemini
-  - CLI
-  - 비교분석
+  - cli
+  - comparison
   - week2
 ---
 

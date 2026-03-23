@@ -80,6 +80,13 @@ npm test                      # 테스트 실행
 - 레이아웃 변경: `quartz.layout.ts` (사이드바, 헤더, 푸터 구성)
 - 사이트 설정: `quartz.config.ts` (제목, 테마 색상, 폰트, 분석도구)
 
+### 콘텐츠 네이밍 & 구조 컨벤션
+- 폴더: `content/{카테고리}/{서브카테고리}/` (dev/ai/, life/parenting/ 등)
+- 파일명: 한글 허용, 공백 금지, 언더스코어 구분
+- 태그: 소문자 영문 + 하이픈 (예: claude-code, api-integration)
+- frontmatter 필수: title, date, tags
+- frontmatter 권장: description (SEO 메타 디스크립션용)
+
 ### 자주 하는 실수 방지
 - `quartz.config.ts` 수정 후 빌드 테스트 없이 push하지 말 것
 - content 파일명에 공백 포함 시 URL 인코딩 문제 주의

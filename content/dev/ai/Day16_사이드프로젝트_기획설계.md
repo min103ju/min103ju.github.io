@@ -2,8 +2,8 @@
 title: "Day 16: 사이드 프로젝트 기획 & 설계"
 date: 2026-03-18
 tags:
-  - 사이드프로젝트
-  - 기획
+  - side-project
+  - planning
   - week4
 ---
 

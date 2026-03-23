@@ -3,7 +3,7 @@ title: "Day 1: CLAUDE.md 작성법 & 프로젝트 컨텍스트 설계"
 date: 2026-03-05
 tags:
   - claude-code
-  - CLAUDE-md
+  - claude-md
   - week1
 ---
 

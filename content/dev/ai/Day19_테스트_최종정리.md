@@ -2,8 +2,8 @@
 title: "Day 19: 테스트 & 최종 정리"
 date: 2026-03-19
 tags:
-  - 테스트
-  - 최종정리
+  - testing
+  - final-review
   - week4
 ---
 
