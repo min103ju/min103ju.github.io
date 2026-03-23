@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // Explorer: 긴 제목 1줄 말줄임 처리
 .explorer-content {
@@ -19,5 +20,72 @@
   .folder-container > div {
     overflow: hidden;
     min-width: 0;
+  }
+}
+
+// 1-4: 모바일 코드블록 오버플로우 개선
+@media all and ($mobile) {
+  pre {
+    font-size: 0.85em;
+    line-height: 1.5;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    & > code {
+      font-size: 0.85em;
+    }
+  }
+
+  code {
+    font-size: 0.85em;
+    word-break: break-word;
+  }
+}
+
+// 1-2: 홈페이지 히어로 섹션
+.page[data-slug="index"] {
+  & .article-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  // 첫 번째 <p> = 슬로건
+  & #quartz-body .center > article > p:first-of-type {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--secondary);
+    border-left: 4px solid var(--tertiary);
+    padding-left: 0.8rem;
+    margin: 1.5rem 0;
+  }
+}
+
+// 1-3: 카드형 글 목록
+.section-li {
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--tertiary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  & .section > .desc {
+    color: var(--darkgray);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  & .section > .meta {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  & .tags {
+    margin-top: 0.5rem;
   }
 }
