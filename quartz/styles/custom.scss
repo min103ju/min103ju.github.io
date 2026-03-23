@@ -1,3 +1,23 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Explorer: 긴 제목 1줄 말줄임 처리
+.explorer-content {
+  & ul li > a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  .folder-container > div > a,
+  .folder-container > div > button > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .folder-container > div {
+    overflow: hidden;
+    min-width: 0;
+  }
+}
