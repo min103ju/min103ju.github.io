@@ -1,6 +1,7 @@
 ---
 title: "Day 16: 사이드 프로젝트 기획 & 설계"
 date: 2026-03-18
+description: "Week 1~3 기술을 총동원하여 북마크 매니저 MCP 서버 사이드 프로젝트를 기획하고 설계한다."
 tags:
   - side-project
   - planning

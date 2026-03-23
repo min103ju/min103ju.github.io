@@ -1,6 +1,7 @@
 ---
 title: "Day 11: MCP 프로토콜 구조 & SDK 학습"
 date: 2026-03-17
+description: "MCP(Model Context Protocol) 스펙을 정독하고 SDK를 학습하여 AI 도구 확장의 기반을 다진다."
 tags:
   - mcp
   - sdk

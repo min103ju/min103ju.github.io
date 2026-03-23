@@ -1,6 +1,7 @@
 ---
 title: "Day 6: Gemini CLI 설치 & 기본 활용"
 date: 2026-03-10
+description: "Google Gemini CLI를 설치하고 기본 활용법을 탐색하며 Claude Code와의 차이점을 비교한다."
 tags:
   - gemini
   - cli

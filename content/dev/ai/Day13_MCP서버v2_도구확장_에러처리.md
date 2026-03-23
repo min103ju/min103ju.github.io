@@ -1,6 +1,7 @@
 ---
 title: "Day 13: MCP 서버 v2 — 도구 확장 & 에러 처리"
 date: 2026-03-17
+description: "MCP 서버에 도시 비교, 옷차림 추천 도구를 추가하고 체계적인 에러 처리를 구현한다."
 tags:
   - mcp
   - error-handling

@@ -1,6 +1,7 @@
 ---
 title: "Day 10: AI 도구 비교 분석"
 date: 2026-03-14
+description: "Week 2에서 탐색한 5개 AI 도구(Claude Code, Gemini CLI, Codex, NotebookLM, Cursor)를 종합 비교 분석한다."
 tags:
   - comparison
   - retrospective

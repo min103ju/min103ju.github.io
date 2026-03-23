@@ -1,6 +1,7 @@
 ---
 title: "Day 17: 코어 기능 구현 — AI 페어 프로그래밍"
 date: 2026-03-18
+description: "Claude Code와 AI 페어 프로그래밍으로 북마크 매니저의 코어 기능(BookmarkStore, MCP 도구)을 구현한다."
 tags:
   - implementation
   - ai-pair-programming

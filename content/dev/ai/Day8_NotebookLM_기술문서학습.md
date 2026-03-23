@@ -1,6 +1,7 @@
 ---
 title: "Day 8: NotebookLM으로 기술 문서 학습"
 date: 2026-03-11
+description: "Google NotebookLM에 기술 문서를 업로드하여 JPA, Virtual Threads 등을 효율적으로 학습하는 방법을 탐색한다."
 tags:
   - notebooklm
   - learning-tool

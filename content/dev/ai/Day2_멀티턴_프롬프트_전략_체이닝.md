@@ -1,6 +1,7 @@
 ---
 title: "Day 2: 멀티턴 프롬프트 전략 & 체이닝"
 date: 2026-03-05
+description: "단일 프롬프트와 체이닝 전략을 비교 실험하고, 복잡한 리팩토링 작업에 멀티턴 프롬프트를 적용하는 방법을 다룬다."
 tags:
   - prompt-engineering
   - chaining

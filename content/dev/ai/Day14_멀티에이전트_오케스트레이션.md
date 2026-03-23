@@ -1,6 +1,7 @@
 ---
 title: "Day 14: 멀티 에이전트 오케스트레이션 패턴"
 date: 2026-03-18
+description: "오케스트레이터-워커 패턴으로 멀티 에이전트 시스템을 설계하고, 병렬 작업 분배 전략을 학습한다."
 tags:
   - multi-agent
   - orchestration

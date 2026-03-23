@@ -1,6 +1,7 @@
 ---
 title: "Day 9: Cursor / Windsurf 에디터 체험"
 date: 2026-03-12
+description: "Cursor와 Windsurf AI 에디터를 실무 프로젝트에서 체험하고 기존 CLI 도구와의 차이점을 비교한다."
 tags:
   - cursor
   - windsurf

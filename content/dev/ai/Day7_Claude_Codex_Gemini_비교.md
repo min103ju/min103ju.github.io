@@ -1,6 +1,7 @@
 ---
 title: "Day 7: OpenAI Codex CLI 체험 & AI 코드 생성 비교"
 date: 2026-03-11
+description: "OpenAI Codex CLI를 체험하고, Claude Code, Gemini CLI와 함께 Spring Boot TODO API 코드 생성을 비교 분석한다."
 tags:
   - codex
   - claude

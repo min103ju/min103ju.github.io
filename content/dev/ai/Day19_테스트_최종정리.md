@@ -1,6 +1,7 @@
 ---
 title: "Day 19: 테스트 & 최종 정리"
 date: 2026-03-19
+description: "북마크 매니저의 에러 처리를 강화하고, 19일간의 AI 도구 마스터리 커리큘럼을 최종 정리한다."
 tags:
   - testing
   - final-review

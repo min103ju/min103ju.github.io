@@ -1,6 +1,7 @@
 ---
 title: "Day 15: Week 3 종합 정리"
 date: 2026-03-18
+description: "Week 3에서 MCP 서버 구현과 멀티 에이전트 패턴을 배우며 AI 도구 소비자에서 생산자로 전환한 과정을 정리한다."
 tags:
   - retrospective
   - mcp

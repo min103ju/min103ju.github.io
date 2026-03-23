@@ -1,6 +1,7 @@
 ---
 title: "Day 1: CLAUDE.md 작성법 & 프로젝트 컨텍스트 설계"
 date: 2026-03-05
+description: "CLAUDE.md의 WHAT/WHY/HOW 프레임워크로 프로젝트 컨텍스트를 설계하고, Claude Code의 영구 기억을 구성하는 방법을 학습한다."
 tags:
   - claude-code
   - claude-md

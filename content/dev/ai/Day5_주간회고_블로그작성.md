@@ -1,6 +1,7 @@
 ---
 title: "Day 5: 주간 회고 & 블로그 작성"
 date: 2026-03-08
+description: "Week 1에서 배운 CLAUDE.md, 프롬프트 체이닝, 서브 에이전트, Skills/Hooks를 정리하고 회고한다."
 tags:
   - retrospective
   - blog

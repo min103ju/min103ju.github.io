@@ -1,6 +1,7 @@
 ---
 title: "Day 4: Custom Skills & Hooks 설정"
 date: 2026-03-07
+description: "Claude Code의 Custom Skills와 Hooks를 설정하여 반복 작업을 자동화하고 워크플로우를 커스터마이징한다."
 tags:
   - claude-code
   - skills

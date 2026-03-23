@@ -1,6 +1,7 @@
 ---
 title: "Day 18: 기능 확장 & MCP 연동"
 date: 2026-03-19
+description: "북마크 매니저에 검색, 수정 도구를 추가하고 Claude Code MCP 서버로 연동하여 자연어 관리를 구현한다."
 tags:
   - mcp
   - feature-extension

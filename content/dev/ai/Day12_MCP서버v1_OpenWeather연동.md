@@ -1,6 +1,7 @@
 ---
 title: "Day 12: MCP 서버 v1 — OpenWeather API 연동"
 date: 2026-03-17
+description: "첫 MCP 서버를 구현하여 OpenWeather API를 연동하고, Claude Code에서 날씨 정보를 자연어로 조회한다."
 tags:
   - mcp
   - openweather

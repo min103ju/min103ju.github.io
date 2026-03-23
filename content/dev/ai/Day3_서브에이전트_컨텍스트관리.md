@@ -1,6 +1,7 @@
 ---
 title: "Day 3: 서브 에이전트 & /clear, /compact 활용"
 date: 2026-03-06
+description: "Claude Code의 Task() 서브 에이전트와 /clear, /compact 명령으로 컨텍스트를 효율적으로 관리하는 방법을 실습한다."
 tags:
   - claude-code
   - sub-agent
