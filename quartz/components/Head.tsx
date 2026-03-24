@@ -86,6 +86,34 @@ export default (() => {
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
+        {/* Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description: description,
+              url: socialUrl,
+              author: {
+                "@type": "Person",
+                name: cfg.pageTitle,
+              },
+              publisher: {
+                "@type": "Organization",
+                name: cfg.pageTitle,
+              },
+              ...(fileData.dates?.modified && {
+                dateModified: fileData.dates.modified.toISOString(),
+              }),
+              ...(fileData.dates?.created && {
+                datePublished: fileData.dates.created.toISOString(),
+              }),
+            }),
+          }}
+        />
+
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js
           .filter((resource) => resource.loadTime === "beforeDOMReady")
