@@ -14,6 +14,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 2, Day 9
 > 소요 시간: 50분 | 탐색 중심
 
+
+> [!summary] 핵심 배운 점
+> - Tab / Inline Edit / Agent / Plan 4가지 모드
+> - Agent가 핵심: 멀티 파일 편집 + 자율 실행 루프
+> - IntelliJ 메인 + Claude Code/Cursor 보조 조합 추천
+
+
 ---
 
 ## ① Cursor 설치 & 실무 프로젝트 열기

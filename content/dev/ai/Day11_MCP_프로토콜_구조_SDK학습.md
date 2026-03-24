@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 3, Day 11
 > 소요 시간: 50분 | 학습 + 실습
 
+
+> [!summary] 핵심 배운 점
+> - Host(IDE) → Client(커넥터) → Server(우리가 만드는 것) 3단계
+> - Tools / Resources / Prompts 3가지 기능, 실무 90%는 Tools
+> - STDIO 서버에서 console.log() 금지, console.error() 사용
+
+
 ---
 
 ## ① MCP 스펙 문서 정독

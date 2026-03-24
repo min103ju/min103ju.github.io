@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 1, Day 5
 > 소요 시간: 40분 | 작성 중심
 
+
+> [!summary] 핵심 배운 점
+> - Before/Action/After 형식으로 체험 정리
+> - 블로그 톤은 "가르치기"가 아니라 "함께 배운 것 나누기"
+> - 가장 임팩트 큰 2~3가지에 집중 (2,000~3,000단어)
+
+
 ---
 
 ## ① 1주차 학습 내용 정리

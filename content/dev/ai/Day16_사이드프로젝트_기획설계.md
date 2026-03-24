@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 4, Day 16
 > 소요 시간: 50분 | 기획 중심
 
+
+> [!summary] 핵심 배운 점
+> - 북마크 매니저 MCP 서버: JSON 기반 CRUD + 5개 도구
+> - 체이닝(아이디어→PRD→일정) + NotebookLM(리뷰) 조합
+> - Plan Mode로 아키텍처 설계 후 CLAUDE.md 작성
+
+
 ---
 
 ## Week 4 목표

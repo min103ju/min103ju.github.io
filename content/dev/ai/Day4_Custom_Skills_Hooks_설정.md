@@ -14,6 +14,14 @@ tags:
 > AI Tools Mastery Curriculum — Week 1, Day 4
 > 소요 시간: 50분 | 실습 중심
 
+
+> [!summary] 핵심 배운 점
+> - Skills는 필요 시만 로드되는 점진적 공개(Progressive Disclosure)
+> - description을 적극 작성해야 Claude가 자동 호출
+> - Hooks는 프롬프트가 아닌 시스템 레벨 보장 제공
+> - exit 코드: 0=허용, 2=차단, 그 외=경고
+
+
 ---
 
 ## ① .claude/skills/ 폴더 구조 & SKILL.md 작성

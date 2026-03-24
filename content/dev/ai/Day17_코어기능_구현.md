@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 4, Day 17
 > 소요 시간: 50분 | 구현 중심
 
+
+> [!summary] 핵심 배운 점
+> - BookmarkStore(JSON CRUD) → MCP 도구(add/list/delete) 순서
+> - Inspector로 정상/에러 5가지 시나리오 테스트
+> - tools/ 폴더에 핸들러 파일별 분리
+
+
 ---
 
 ## 오늘 할 일

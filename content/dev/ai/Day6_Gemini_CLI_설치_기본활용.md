@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 2, Day 6
 > 소요 시간: 45분 | 탐색 중심
 
+
+> [!summary] 핵심 배운 점
+> - 무료(60회/분) + 1M 토큰 컨텍스트 + @import 모듈화
+> - GEMINI.md로 프로젝트별 컨텍스트 설정
+> - 1M 토큰으로 대규모 코드베이스 한 번에 탐색 가능
+
+
 ---
 
 ## ① Gemini CLI 설치

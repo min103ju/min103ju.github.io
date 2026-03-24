@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 2, Day 10
 > 소요 시간: 30분 | 정리 중심
 
+
+> [!summary] 핵심 배운 점
+> - 최고의 도구는 없고 상황별 최적 조합이 존재
+> - 분석→Claude, 탐색→Gemini, 자동화→Codex, 구현→Cursor, 학습→NotebookLM
+> - 비용 최적화: 무료(Gemini+NotebookLM) vs $40/월(Claude+Cursor)
+
+
 ---
 
 ## ① 5개 도구 비교표 완성

@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 3, Day 13
 > 소요 시간: 50분 | 구현 중심
 
+
+> [!summary] 핵심 배운 점
+> - Promise.all()로 병렬 API 호출하여 응답 시간 단축
+> - 커스텀 에러 클래스로 사용자 메시지 품질 향상
+> - 인메모리 캐시 10분 TTL로 API 호출 절감
+
+
 ---
 
 ## ① 도구 추가: 도시 비교 & 옷차림 추천

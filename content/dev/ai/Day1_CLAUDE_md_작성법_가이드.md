@@ -13,6 +13,14 @@ tags:
 > AI Tools Mastery Curriculum — Week 1, Day 1
 > 소요 시간: 40분 | 실습 중심
 
+
+> [!summary] 핵심 배운 점
+> - CLAUDE.md는 매뉴얼이 아니라 "Claude가 자주 틀리는 것을 교정하는 노트"
+> - WHAT(30%) / WHY(20%) / HOW(50%) 프레임워크로 구성
+> - 150줄 이내 유지, ❌ 하지 마 대신 ✅ 대안 제시
+> - 전역/프로젝트/모듈 3단계 계층 활용
+
+
 ---
 
 ## ① CLAUDE.md 구조 학습 (WHAT/WHY/HOW 프레임워크)

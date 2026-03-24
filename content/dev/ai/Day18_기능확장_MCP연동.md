@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 4, Day 18
 > 소요 시간: 50분 | 구현 + 연동
 
+
+> [!summary] 핵심 배운 점
+> - search/update 도구 추가, claude mcp add로 등록
+> - description 품질이 도구 자동 선택의 핵심
+> - Fan-out/Fan-in으로 3관점(데이터/도구/코드) 병렬 리뷰
+
+
 ---
 
 ## 오늘 할 일

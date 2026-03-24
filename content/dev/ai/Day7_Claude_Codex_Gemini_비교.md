@@ -16,6 +16,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 2, Day 7
 > 소요 시간: 45분 | 탐색 중심
 
+
+> [!summary] 핵심 배운 점
+> - Codex는 OS 레벨 샌드박스로 물리적 보안 (3가지 모드)
+> - --full-auto로 완전 자동화 가능 (CI/자동화용)
+> - Claude(심층) vs Gemini(넓은 범위) vs Codex(안전한 자동화)
+
+
 ---
 
 ## ① Codex CLI 설치 & 인증

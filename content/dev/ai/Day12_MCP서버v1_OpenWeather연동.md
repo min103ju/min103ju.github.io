@@ -14,6 +14,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 3, Day 12
 > 소요 시간: 50분 | 구현 중심
 
+
+> [!summary] 핵심 배운 점
+> - 하드코딩 → Inspector 테스트 → 실제 API 교체 → Claude 연동
+> - API 키는 process.env로 관리, 코드 하드코딩 금지
+> - 응답은 구조화 데이터 반환, 해석은 Claude가 담당
+
+
 ---
 
 ## ① OpenWeather API 분석

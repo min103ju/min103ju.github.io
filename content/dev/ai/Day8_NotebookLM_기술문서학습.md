@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 2, Day 8
 > 소요 시간: 40분 | 탐색 중심
 
+
+> [!summary] 핵심 배운 점
+> - 코딩 도구가 아닌 "문서 기반 전문가 AI"
+> - Audio Overview로 문서→팟캐스트 변환, Interactive Mode로 능동 학습
+> - NotebookLM(조사/학습) → Claude Code(구현) 워크플로우
+
+
 ---
 
 ## ① 기술 문서 업로드

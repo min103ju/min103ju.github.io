@@ -13,6 +13,13 @@ tags:
 > AI Tools Mastery Curriculum — Week 4, Day 19
 > 소요 시간: 50분 | 마무리 중심
 
+
+> [!summary] 핵심 배운 점
+> - Codex read-only로 edge case 분석 → Claude로 보완
+> - URL 검증, JSON 손상 대비, 중복 제거 등 edge case 처리
+> - 4주 핵심: CLAUDE.md → 도구 조합 → MCP 제작 → 실전 적용
+
+
 ---
 
 ## 오늘 할 일
