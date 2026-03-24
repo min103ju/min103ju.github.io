@@ -43,14 +43,14 @@
 }
 
 // 1-2: 홈페이지 히어로 섹션
-.page[data-slug="index"] {
-  & .article-title {
+body[data-slug="index"] {
+  .article-title {
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
   }
 
   // 첫 번째 <p> = 슬로건
-  & #quartz-body .center > article > p:first-of-type {
+  article > p:first-of-type {
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--secondary);
